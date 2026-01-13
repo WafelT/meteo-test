@@ -210,7 +210,7 @@ export const handlers = [
   http.post('/api/checkout', async ({ request }) => {
     const body = await request.json()
     
-    if (!body.customer || !body.customer.name) {
+    if (!body.name) {
       return HttpResponse.json(
         { error: 'INVALID_CUSTOMER' },
         { status: 422 }
@@ -227,6 +227,8 @@ export const handlers = [
 
     const orderId = `ORD-${new Date().toISOString().split('T')[0].replace(/-/g, '')}-${String(Math.floor(Math.random() * 10000)).padStart(4, '0')}`
     dataStore.setCart({ items: [], subtotal: 0, currency: 'USD', updatedAt: new Date().toISOString() })
+    
+    console.log('✅ Checkout:', { name: body.name, comment: body.comment || '(нет комментария)' })
     
     return HttpResponse.json({ orderId })
   })

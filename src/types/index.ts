@@ -55,10 +55,7 @@ export interface ProductFilters {
 
 export interface CheckoutData {
   name: string
-  email: string
-  phone: string
-  address: string
-  paymentMethod: string
+  comment: string
 }
 
 export interface ToastNotification {

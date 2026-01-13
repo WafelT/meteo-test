@@ -61,10 +61,7 @@ const handleCheckout = async (form: CheckoutData): Promise<void> => {
   try {
     const response = await api.checkout.create({
       name: form.name,
-      email: form.email,
-      phone: form.phone,
-      address: form.address,
-      paymentMethod: form.paymentMethod
+      comment: form.comment
     })
 
     orderId.value = response.orderId || ''

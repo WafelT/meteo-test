@@ -19,65 +19,17 @@
       </div>
 
       <div>
-        <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
-          Email <span class="text-red-500">*</span>
-        </label>
-        <input
-          id="email"
-          v-model="form.email"
-          type="email"
-          required
-          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-          placeholder="Введите email"
-          aria-label="Email"
-        />
-      </div>
-
-      <div>
-        <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">
-          Телефон <span class="text-red-500">*</span>
-        </label>
-        <input
-          id="phone"
-          v-model="form.phone"
-          type="tel"
-          required
-          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-          placeholder="Введите телефон"
-          aria-label="Телефон"
-        />
-      </div>
-
-      <div>
-        <label for="address" class="block text-sm font-medium text-gray-700 mb-2">
-          Адрес <span class="text-red-500">*</span>
+        <label for="comment" class="block text-sm font-medium text-gray-700 mb-2">
+          Комментарий
         </label>
         <textarea
-          id="address"
-          v-model="form.address"
-          rows="3"
-          required
+          id="comment"
+          v-model="form.comment"
+          rows="4"
           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-          placeholder="Введите адрес доставки"
-          aria-label="Адрес"
-        ></textarea>
-      </div>
-
-      <div>
-        <label for="paymentMethod" class="block text-sm font-medium text-gray-700 mb-2">
-          Способ оплаты <span class="text-red-500">*</span>
-        </label>
-        <select
-          id="paymentMethod"
-          v-model="form.paymentMethod"
-          required
-          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-          aria-label="Способ оплаты"
-        >
-          <option value="">Выберите способ оплаты</option>
-          <option value="card">Банковская карта</option>
-          <option value="cash">Наличные</option>
-        </select>
+          placeholder="Дополнительные пожелания к заказу (необязательно)"
+          aria-label="Комментарий"
+        />
       </div>
     </div>
 
@@ -126,10 +78,7 @@ const authStore = useAuthStore()
 
 const form = ref<CheckoutData>({
   name: '',
-  email: '',
-  phone: '',
-  address: '',
-  paymentMethod: ''
+  comment: ''
 })
 
 // FUNCTIONS

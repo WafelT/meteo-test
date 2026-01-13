@@ -4,7 +4,7 @@
       <div>
         <label class="block text-sm font-medium text-gray-700 mb-2">Поиск</label>
         <input
-          :model-value="filters.q"
+          :value="searchValue"
           @input="handleSearchInput"
           type="text"
           placeholder="Название товара"
@@ -109,6 +109,12 @@ let searchDebounceTimer: ReturnType<typeof setTimeout> | null = null
 let priceDebounceTimer: ReturnType<typeof setTimeout> | null = null
 
 // COMPUTED
+const searchValue = computed<string>(() => {
+  const value = props.filters.q
+  if (value === undefined || value === null || value === '') return ''
+  return String(value)
+})
+
 const minValue = computed<string>(() => {
   const value = props.filters.min
   if (value === undefined || value === null || value === '') return ''
